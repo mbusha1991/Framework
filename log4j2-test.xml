@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status = "WARN">
+
+	<Appenders>
+		<Console name = "Console" target= "SYSTEM_OUT">		
+			<PatternLayout pattern ="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} -%msg%n"  />
+		</Console>
+		
+		<RollingFile name = "file" fileName= "log/logfile.log" filepattern="log/%d{YYYYMMddHHmmss}-New.log">
+			<PatternLayout pattern ="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} -%msg%n"  />
+			 <Policies>
+               <OnStartupTriggeringPolicy />
+               <SizeBasedTriggeringPolicy size="100 KB" />
+            </Policies>
+		
+		</RollingFile>
+	</Appenders>
+	
+	
+	<Loggers>
+	
+
+		<Root level = "trace">
+			<appender-ref ref = "Console"/>		
+			<appender-ref ref = "file"/>		
+		</Root>	
+		
+	</Loggers>
+	
+	
+</Configuration>
